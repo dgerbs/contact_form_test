@@ -1,19 +1,14 @@
 require 'spec_helper'
 
 feature "Contact Form", %q{
-As a site visitor
-I want to contact DogHub staff
-So that I can tell them how awesome they are
+As an admin
+I want to review contact inquiries
+So that I can respond or take action
 } do
 
 # Acceptance Criteria:
+# I can see a list of all contact inquiries
 
-# I must specify a valid email address
-# I must specify a subject
-# I must specify a description
-# I must specify a first name
-# I must specify a last name
-	
 	it "should have a contact form" do
 		visit '/contact_forms'
 		expect(page).to have_content("Contact Form")
