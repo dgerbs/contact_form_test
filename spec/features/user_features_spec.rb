@@ -24,8 +24,7 @@ feature "Contact Form", %q{
 		fill_in 'email', with: 'doug@example.com'
 		fill_in 'subject', with: 'Hey'
 		fill_in 'description', with: 'What\'s going on this weekend?'
-		fill_in 'first', with: 'Doug'
-		fill_in 'last', with: 'Smith'
+		fill_in 'name', with: 'Doug Gerber'
 		click_link 'Submit Email'
 	end
 end
