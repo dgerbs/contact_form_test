@@ -28,12 +28,15 @@ end
 # Acceptance Criteria:
 # I can remove an item from the listing of contact inquiries
 
-	it "should list messages for review" do
+	it "should delete messages" do
 		field = FactoryGirl.create(:contact_form)
+		initial_count = ContactForm.count
 		visit '/contact_forms'
-		expect(page).to have_content(field.name)
-		expect(page).to have_content(field.subject)
-		expect(page).to have_content(field.email)
-		expect(page).to have_content(field.message)
+		click_link 'Destroy'
+		expect(page).not_to have_content(field.name)
+		expect(page).not_to have_content(field.subject)
+		expect(page).not_to have_content(field.email)
+		expect(page).not_to have_content(field.message)
+		expect(ContactForm.count).to eql(initial_count - 1)
 	end
 end
