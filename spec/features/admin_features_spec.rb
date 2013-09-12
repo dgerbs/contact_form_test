@@ -9,18 +9,12 @@ So that I can respond or take action
 # Acceptance Criteria:
 # I can see a list of all contact inquiries
 
-	it "should have a contact form" do
+	it "should list messages for review" do
+		field = FactoryGirl.create(:contact_form)
 		visit '/contact_forms'
-		expect(page).to have_content("Contact Form")
-	end
-
-	it "should specify validated info" do
-		visit '/contact_forms'
-		click_link 'New Contact form'
-		fill_in 'Name', with: 'Doug Gerber'
-		fill_in 'Subject', with: 'Hey'
-		fill_in 'Email', with: 'doug@example.com'
-		fill_in 'Message', with: "What's going on this weekend?"
-	# click_link 'Create Contact form'
+		expect(page).to have_content(field.name)
+		expect(page).to have_content(field.subject)
+		expect(page).to have_content(field.email)
+		expect(page).to have_content(field.message)
 	end
 end

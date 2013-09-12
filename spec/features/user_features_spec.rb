@@ -26,6 +26,6 @@ So that I can tell them how awesome they are
 		fill_in 'Subject', with: 'Hey'
 		fill_in 'Email', with: 'doug@example.com'
 		fill_in 'Message', with: "What's going on this weekend?"
-	# click_link 'Create Contact form'
+	  click_button 'Create Contact form'
 	end
 end
