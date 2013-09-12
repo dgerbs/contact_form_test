@@ -14,17 +14,19 @@ feature "Contact Form", %q{
 # I must specify a first name
 # I must specify a last name
 	
-	it "should have a contact form" do
-		visit '/contact_forms'
-		expect(page).to have_content("Contact Form")
-	end
+		it "should have a contact form" do
+			visit '/contact_forms'
+			expect(page).to have_content("Contact Form")
+		end
 
-	it "should specify validated info" do
-		visit '/contact_forms'
-		fill_in 'email', with: 'doug@example.com'
-		fill_in 'subject', with: 'Hey'
-		fill_in 'description', with: 'What\'s going on this weekend?'
-		fill_in 'name', with: 'Doug Gerber'
-		click_link 'Submit Email'
+		it "should specify validated info" do
+			visit '/contact_forms'
+			click_link 'New Contact form'
+			fill_in 'Name', with: 'Doug Gerber'
+			fill_in 'Subject', with: 'Hey'
+			fill_in 'Email', with: 'doug@example.com'
+			fill_in 'Message', with: "What's going on this weekend?"
+			click_link 'Create Contact form'
+		end
 	end
 end
